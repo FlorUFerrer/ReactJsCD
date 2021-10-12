@@ -1,0 +1,19 @@
+
+.navBarLista{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(img/FondoNegro.jpg)
+}
+
+.navBarItems{
+margin: 2%;
+padding-left: 10%; 
+color: #5c77ad;
+font-weight: bolder;
+font-size: 150%;
+filter: drop-shadow(0 0 1px #000) drop-shadow(1px 1px 0 #000)  drop-shadow(-1px 1px 0 #000) drop-shadow(1px -1px 0 #000) drop-shadow(-1px -1px 0 #000);
+cursor: pointer;
+}
