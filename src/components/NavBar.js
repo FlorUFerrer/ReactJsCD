@@ -1,17 +1,21 @@
 //Inicia con : npm start (en la terminal)
 
-import './NavBar.css'
+import CartWidget from './CartWidget'
+import './styles/NavBar.css'
+
 
 function NavBar() {
      return(
-           
-           <nav className="NavBar">
-                <ul className="navBarLista">
-                       <li className="navBarItems">Inicio</li> 
-                       <li className="navBarItems">Productos</li> 
-                       <li className="navBarItems">Nosotros</li> 
-                </ul>
-            </nav>
+           <div>
+                <nav className="NavBar">
+                    <ul className="navBarLista">
+                        <li className="navBarItems">Inicio</li> 
+                        <li className="navBarItems">Productos</li> 
+                        <li className="navBarItems">Nosotros</li> 
+                        <CartWidget/>
+                    </ul>
+                </nav>
+            </div>
     )
 }
 

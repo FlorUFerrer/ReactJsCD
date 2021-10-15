@@ -1,18 +1,20 @@
+import './components/styles/App.css';
 import React from 'react';
-import './App.css';
-
 import NavBar from './components/NavBar';
+import ItemListContainer  from './components/ItemListContainer';
+//import { useState } from 'react';
+//import {Mensaje} from './components/Mensaje'
 
 function App() {
+
+
   
     return (
       <div >
-      
-        <NavBar/>
-        
-      
-  
-      
+        <header className="App-header">
+          <NavBar/>
+        <ItemListContainer/> 
+        </header>
       </div>
     );
 }

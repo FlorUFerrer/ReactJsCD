@@ -5,7 +5,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    background-image: url(img/FondoNegro.jpg)
+    background-image: url(../img/FondoNegro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  /*background:#0f1727;;*/
+
 }
 
 .navBarItems{
