@@ -1,5 +1,5 @@
- import React , { useState } from 'react';
-
+import "./styles/ItemCount.css"
+import React , { useState } from 'react';
  const Counter = (props) =>{
 
   const [counter,setCounter] = useState(props.sinStock);
@@ -7,21 +7,21 @@
     
     function Add(){
             if (counter < props.stock){
-               setCounter(counter + 1)
+               setCounter(parseInt(counter)+1)
             }
    }
 
    function Decreace(){
              if (counter >= 1){
-                setCounter(counter - 1)
+                setCounter(parseInt(counter)-1)
              }
     }
 
     return(
-        <div>
-            <button  onClick={Decreace}>-</button>
-            <button>{counter}</button> 
-            <button  onClick={Add}>+</button> 
+        <div className="counter">
+            <button className="buttonCounter" onClick={Decreace}>-</button>
+            <button className= "buttonCount">{counter}</button> 
+            <button className="buttonCounter" onClick={Add}>+</button> 
         </div>
     )
 }

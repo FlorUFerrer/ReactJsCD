@@ -1,0 +1,12 @@
+.buttonCounter{
+    width: 30px;
+    height: 25px;
+    color: rgb(179, 173, 233);
+    background:rgb(22, 24, 20);
+}
+.buttonCount{
+    width: 100px;
+    height: 25px;
+    color: rgb(206, 203, 226);
+    background:rgb(65, 70, 60);
+}
