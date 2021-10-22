@@ -1,21 +1,38 @@
 import "./styles/itemListContainer.css"
-import monitor from './img/monitor.jpeg'
-import Counter from './ItemCount';
-const ItemListContainer = () =>{
+import React, { useEffect,useState } from 'react';
+import Products from "./products.json";
+import ItemList from "./ItemList";
 
-    return(
-       <div className="listProducts">
-           <div className="listImg">
-                <img  src ={monitor} alt ="monitor"/>
-                
-           </div>
-           
-           <div className="listCompra"> 
-                <p>###PRECIO###</p>
-                <Counter stock ="10" sinStock ="0"/>      
-             <button className= "listButton">COMPRAR</button>
-            </div>
-       </div>
-    )
-}
+     const ItemListContainer = () => {
+          const [productos, setProductos] = useState([]);
+        
+          const getData = (data) =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                if (data) {
+                  resolve(data);
+                } else {
+                  reject("Nada por aquí");
+                }
+              }, 2000);
+            });
+        
+          useEffect(() => {
+            getData(Products)
+              .then((res) => setProductos(res))
+              .catch((err) => console.log("Aqui pasa algo: " ,err));
+          }, []);
+        
+          return (
+            <>
+              {productos.length
+                ? productos.map((producto) => (
+                    <ItemList product={producto} key={producto.id} />
+                  ))
+                : "Espere unos segundos..."} 
+                {/* No sé como darle estilo al "espere unos segundos" */}
+            </>
+          );
+        };
+
  export default ItemListContainer

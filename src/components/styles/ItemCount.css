@@ -2,9 +2,19 @@
    
     color: rgb(179, 173, 233);
     background:rgb(22, 24, 20);
+    width: 30px;
+    font-size: large;    
+    font-family: Cochin;
 }
 .buttonCount{
-   
+    
+    font-family: Cochin;
+    font-size: large;    
+    width: 60px;
     color: rgb(194, 190, 216);
     background:rgb(65, 70, 60);
+}
+
+.counter{
+    margin: 0.5rem;
 }

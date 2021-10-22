@@ -1,5 +1,9 @@
 import "./styles/ItemCount.css"
 import React , { useState } from 'react';
+
+
+
+
  const Counter = (props) =>{
 
   const [counter,setCounter] = useState(props.sinStock);

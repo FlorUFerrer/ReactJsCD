@@ -1,5 +1,5 @@
 import './components/styles/App.css';
-import React from 'react';
+//import React, { useState } from 'react';
 import NavBar from './components/NavBar';
 import ItemListContainer  from './components/ItemListContainer';
 //import Counter from './components/ItemCount';
@@ -7,13 +7,16 @@ import ItemListContainer  from './components/ItemListContainer';
 //import {Mensaje} from './components/Mensaje'
 
 
+  
+ 
+  
 
 function App() {
-
-
   
-    return (
-      <div >
+  
+ 
+  return (
+    <div >
         <header className="App-header">
           <NavBar/>
         <ItemListContainer/> 
