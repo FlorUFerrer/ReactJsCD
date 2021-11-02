@@ -29,7 +29,7 @@ import ItemList from "./ItemList";
                 ? productos.map((producto) => (
                     <ItemList product={producto} key={producto.id} />
                   ))
-                : "Espere unos segundos..."} 
+                : <p className="loading">"Espere unos segundos..."</p>} 
                 {/* No sé como darle estilo al "espere unos segundos" */}
             </>
           );

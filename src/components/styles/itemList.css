@@ -1,5 +1,5 @@
  .card{
-display: inline-block;
+display: inline-flex;
 flex-direction: column;
 color: rgb(15, 15, 15);
 text-align: center;
