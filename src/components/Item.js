@@ -12,7 +12,7 @@ export const Item = ({ id, name, price, img, stock}) => {
                 
                 <img className="sizeImg" src= {img} alt={name} />
                 <h3>{name}</h3>
-                <span>${price}</span>
+                <h3>${price}</h3>
                 <Counter sinStock="0" stock ={stock} />
                 <NavLink  key = { id } exact to={`/item/${id}`}>
                              <button className="details">DETALLES </button>
