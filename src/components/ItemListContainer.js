@@ -1,38 +1,49 @@
 import "./styles/itemListContainer.css"
 import React, { useEffect,useState } from 'react';
-import Products from "./products.json";
+import {useParams} from "react-router-dom";
+import {productList} from "../data/productList";
 import ItemList from "./ItemList";
 
-     const ItemListContainer = () => {
-          const [productos, setProductos] = useState([]);
-        
-          const getData = (data) =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                if (data) {
-                  resolve(data);
-                } else {
-                  reject("Nada por aquí");
-                }
-              }, 2000);
-            });
-        
-          useEffect(() => {
-            getData(Products)
-              .then((res) => setProductos(res))
-              .catch((err) => console.log("Aqui pasa algo: " ,err));
-          }, []);
-        
-          return (
-            <>
-              {productos.length
-                ? productos.map((producto) => (
-                    <ItemList product={producto} key={producto.id} />
-                  ))
-                : <p className="loading">"Espere unos segundos..."</p>} 
-                {/* No sé como darle estilo al "espere unos segundos" */}
-            </>
-          );
-        };
 
- export default ItemListContainer
+const productListPromise = new Promise((resolve, reject) => {
+  setTimeout(function() {
+    resolve(productList);
+  }, 2000);
+});
+
+export const ItemListContainer = () => {
+  
+  const { category } = useParams();
+
+  const [productos, setProductos] = useState({
+      data: [],
+      loading: true
+  });
+  
+  useEffect( () => {
+
+      productListPromise.then( data => {
+          if( category === undefined ) {
+              setProductos({
+                  data: data,
+                  loading: false
+              })
+          } else {
+              setProductos({
+                  data: data.filter( product => product.category === category ),
+                  loading: false
+              });
+          }
+      });
+  }, [category]);
+
+  return (
+      <div className="containerProductos">
+          <ItemList productos = { productos } />
+      </div>
+  );
+  
+}
+
+
+  export default ItemListContainer

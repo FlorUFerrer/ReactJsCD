@@ -1,23 +1,65 @@
 
-.navBarLista{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-image: url(../img/FondoNegro.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  /*background:#0f1727;;*/
 
+.header{
+    display:flex;
+    justify-content: space-between;
+    background-color:rgb(7, 51, 105);
+    padding: 20px;
+    align-items: center;
 }
 
+.navBarLista{
+    display: none;
+    list-style: none;
+    flex-flow:column nowrap;
+    align-items: center;
+    gap:50px;
+    filter: drop-shadow(0 0 1px #000) drop-shadow(1px 1px 0 #000)  drop-shadow(-1px 1px 0 #000) drop-shadow(1px -1px 0 #000) drop-shadow(-1px -1px 0 #000);
+    cursor: pointer;
+   /* transform: translate(100%); */
+   font-size: 150%;
+};
+
 .navBarItems{
-margin: 2%;
-padding-left: 10%; 
-color: #5c77ad;
-font-weight: bolder;
-font-size: 150%;
-filter: drop-shadow(0 0 1px #000) drop-shadow(1px 1px 0 #000)  drop-shadow(-1px 1px 0 #000) drop-shadow(1px -1px 0 #000) drop-shadow(-1px -1px 0 #000);
-cursor: pointer;
+    list-style: none;
+    color: #6380b9;
+    font-weight: bolder;
+    
+}
+
+.hamburguerMenu{
+    width: 45px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 20px;;
+}
+.line{
+    width: 100%;
+    height: 25%;
+    background-color:rgba(247, 240, 240, 0.822) ;
+    
+    
+}
+
+
+/*MEDIA QUERIES*/
+
+@media (min-width: 900px){
+    .navBarLista{ 
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        gap:50px;
+        filter: drop-shadow(0 0 1px #000) drop-shadow(1px 1px 0 #000)  drop-shadow(-1px 1px 0 #000) drop-shadow(1px -1px 0 #000) drop-shadow(-1px -1px 0 #000);
+        cursor: pointer;
+       
+    }
+    
+    .hamburguerMenu{ 
+        display:none;
+    }
+
 }

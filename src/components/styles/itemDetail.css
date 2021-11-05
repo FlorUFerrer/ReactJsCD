@@ -1,3 +1,26 @@
 .itemDetail{
-    color: white;
+    color: rgb(15, 15, 15);
+    text-align: center;
+    border-width: 10px;
+    background:rgb(240, 236, 236);
+    width: 30rem;
+    height: 40rem;
+    margin: 2rem;
+    font-family: 'Lucida Sans';
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); 
+}
+
+.containerItemDetail{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.imgContainer{
+    margin: 2rem;
+    height: 25rem;
+    width: 25rem;
+}
+.counter{
+    margin: -1rem;
 }

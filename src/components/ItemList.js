@@ -1,20 +1,34 @@
-import './styles/itemList.css'
-import Counter from './ItemCount';
- 
+import React from 'react';
+import { Item } from './Item';
+import "./styles/itemList.css";
+import "./styles/loading.css";
 
-const ItemList = ({ product }) => {
-  return (
-   
-        <div className="card">
-            <img src={product.img} alt="" />
-            <h3>{product.name}</h3>
-            <span>${product.price}</span>
-            <Counter sinStock="0" stock ={product.stock} />
+
+
+export const ItemList = ({ productos }) => {
+
+    return (
+        <div >
+
+            { productos.loading && <p className="loading">"Espere unos segundos..."</p> }  
+
+            {
+                productos.data.map(product => (
+                  <div className="containerItemList">
+                        <Item
+                             id ={product.id}
+                            img = { product.img}
+                            name = { product.name }
+                            price = { product.price }
+                            />
+
+                       
+                </div>
+                ))
+            }
         </div>
-    
-  );
-};
+    );
 
-export default ItemList;
+}
 
-
+export default ItemList

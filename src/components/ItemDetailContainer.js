@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
+import { productList } from '../data/productList';
 import { ItemDetail } from './ItemDetail';
-import './styles/itemDetail.css'
-const itemToDetail = {
-        id: '1',
-        name: 'Monitor Gamer ',
-        description: 'Marca: Sentey  Tamaño: 27 pulgadas  Color: negro',
-        price: 45000,
-        img: "https://drive.google.com/uc?export=view&id=1Q9rVS3_s0MTey9J33yueWJL5zeRJtanI"     
-}
 
-const itemToDetailPromise = new Promise((resolve, reject) => {
+const productListPromise = new Promise((resolve, reject) => {
     setTimeout(function() {
-        resolve(itemToDetail);
+      resolve(productList);
     }, 2000);
 });
 
 export const ItemDetailContainer = () => {
+
+    const { id } = useParams();
 
     const[item, setItem] = useState({
         data: {},
@@ -23,20 +19,23 @@ export const ItemDetailContainer = () => {
     });
 
     useEffect( () => {
-        itemToDetailPromise.then( data => {
+        productListPromise.then( data => {              
             setItem({
-                data: data,
+                data: data.find( product => product.id === parseInt(id) ),
                 loading: false
-            });
-        });
-    }, []);
+            });   
+        });  
+    }, [id]);
 
     return (
-        <div>
-            <div className= "itemDetail">
-                <h1>Detalle</h1>
+        <div >
+            <div >
+                
                 <ItemDetail item = { item } />
+                
             </div>
         </div>
     );
 }
+
+

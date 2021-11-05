@@ -1,12 +1,11 @@
+import React, { useState } from 'react';
 import "./styles/ItemCount.css"
-import React , { useState } from 'react';
 
+export const ItemCount = (props) => {
 
+   
 
-
- const Counter = (props) =>{
-
-  const [counter,setCounter] = useState(props.sinStock);
+    const [counter,setCounter] = useState(props.sinStock);
 
     
     function Add(){
@@ -21,14 +20,26 @@ import React , { useState } from 'react';
              }
     }
 
-    return(
-        <div className="counter">
-            <button className="buttonCounter" onClick={Decreace}>-</button>
-            <button className= "buttonCount">{counter}</button> 
-            <button className="buttonCounter" onClick={Add}>+</button> 
+
+    return (
+        <div>
+
+                     
+            <div className="counter">
+                <button className="buttonCounter" onClick={Decreace}>-</button>
+                <button className= "buttonCount">{counter}</button> 
+                <button className="buttonCounter" onClick={Add}>+</button> 
+            </div>
+        
         </div>
-    )
+    );
 }
 
 
- export default Counter;
+
+export default ItemCount
+
+
+
+
+
