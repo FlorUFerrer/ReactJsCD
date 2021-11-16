@@ -1,12 +1,24 @@
-import React from 'react'
-import Counter from './ItemCount';
+
+import React, { useState, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import CartContext from '../context/CartContext';
+import ItemCount from './ItemCount';
 import "./styles/itemDetail.css";
 import "./styles/loading.css";
 
 
+
+
 export const ItemDetail = ({ item }) => {
 
-   
+    const { addItem } = useContext(CartContext);
+  
+    const [amountToBuy, setAmountToBuy] = useState(0);
+
+    const onAdd = ( amount ) => {
+        setAmountToBuy( amount );
+        addItem({item, amount})
+    }
 
     return (
         <div >
@@ -22,12 +34,31 @@ export const ItemDetail = ({ item }) => {
                                <h5 >{ item.data.name }</h5>
                                 <p >{ item.data.description }</p>
                                 <p >$ { item.data.price }</p>
-                                <Counter className="counter" sinStock="0" stock ={item.data.stock} />
                             </div>
-                        </div>
+
+
+                            {amountToBuy === 0 && 
+                                <ItemCount 
+                                    stock = {10}
+                                    initial = {1}
+                                    onAdd = {onAdd}
+                                />
+                            }
+                            {amountToBuy !== 0 &&
+                                <div >    
+                                    <div >
+                                        <NavLink  exact to={'/cart'}>Terminar compra</NavLink>
+                                    </div>
+                                </div>
+                            }
+                       </div>
+
                     </div>
+                  
                 }
+          
+                
             </div>
         </div>
-    )
+    );
 }

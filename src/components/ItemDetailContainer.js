@@ -30,12 +30,9 @@ export const ItemDetailContainer = () => {
     return (
         <div >
             <div >
-                
+                <h1>Item Detail Container</h1>
                 <ItemDetail item = { item } />
-                
             </div>
         </div>
     );
 }
-
-
