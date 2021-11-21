@@ -1,11 +1,11 @@
 import './components/styles/App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer  from './components/ItemListContainer';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
+import ItemListContainer  from './components/ItemListContainer';
+import NavBar from './components/NavBar';
 import { Cart } from './components/Cart';
 import CacheProvider from './provider/CacheProvider';
-
+//  import {FinalOrden} from './components/FinalOrden';
 
  
   
@@ -35,6 +35,11 @@ function App() {
         <Route exact path="/cart">
           <Cart />
         </Route>
+        
+         {/* <Route exact path="/finalOrden">
+          <FinalOrden/>
+        </Route>
+        */}
       
       </Switch>
 

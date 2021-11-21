@@ -1,0 +1,61 @@
+.buttonEstilo{
+    color: rgb(221, 220, 233);
+    background:rgb(22, 24, 20);
+    width: 200px;
+    font-size: large;    
+    font-family: Cochin;
+}
+.buttonVaciar{
+    color: rgb(22, 22, 22);
+    background:rgb(235, 44, 10);
+    width: 200px;
+    font-size: large;    
+   font-family: Cochin;
+   margin: 10px;
+}
+.buttonSeguir{
+    color: rgb(22, 22, 22);
+    background:rgb(198, 231, 194);
+    width: 200px;
+    font-size: large;    
+    font-family: Cochin;
+    margin: 10px;
+}
+
+
+.cardCart{
+    height: 42rem; 
+    width: 30rem;
+    color: rgb(15, 15, 15);
+    background:rgb(240, 236, 236);
+    border-width: 50px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); 
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}  
+
+
+.containerCart{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 15px;
+    justify-content: center;
+    gap: 10px;
+}
+
+ .cartContainerCard{
+    justify-content: center;
+    text-align: center;
+  
+} 
+
+.containerVaciarSeguir{
+   text-align: center;
+}
+
+.estiloSinItems{
+    text-align: center;
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+    font-size: xx-large;
+
+}

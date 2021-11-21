@@ -1,37 +1,29 @@
+
 import React from 'react';
-import { Item } from './Item';
 import { NavLink } from 'react-router-dom';
 import "./styles/itemList.css";
 import "./styles/loading.css";
 
 
 
-export const ItemList = ({ productos }) => {
 
+export const ItemList = ( product ) => {
+   
+  
     return (
-        <div >
 
-            { productos.loading && <p className="loading">"Espere unos segundos..."</p> }  
 
-            {
-                
-                productos.data.map(product => (
-                    <NavLink className="" key = { product.id } exact to={`/item/${product.id}`}>
-                       <div className="containerItemList">
-                            <Item
-                                id ={product.id}
-                                img = { product.img}
-                                name = { product.name }
-                                price = { product.price }
-                                />
-                  
-                        </div>
-                    </NavLink>
-                ))
-            }
-        </div>
+<div className="containerCard" >
+             <div className="card">
+                <img className="sizeImg" src= {product.img} alt={product.name} />
+                <h3>{product.name}</h3>
+                <h3>${product.price}</h3>
+              
+                <NavLink to={`/producto/${product.id}`}><button className="details">DETALLES </button></NavLink>
+                        
+            </div>
+           
+       </div>
+      
     );
-
-}
-
-export default ItemList
+  };

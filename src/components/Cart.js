@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import CartContext from '../context/CartContext'
 import { NavLink } from 'react-router-dom';
+import CartContext from '../context/CartContext'
 import { CartItem } from './CartItem';
+import './styles/Cart.css'
 
 export const Cart = () => {
 
@@ -9,16 +10,14 @@ export const Cart = () => {
 
     return (
         <div >
-            <h1>CARRITO</h1> 
+            <h1>CART</h1> 
             
-            { cacheSize !== 0 &&
-                <button  disabled>Total de compra: $ {cartTotalAmount}</button>
-            }
+           
 
             { cacheSize === 0 && 
-                <div >
+                <div className="estiloSinItems" >
                     <div>
-                        <p >No dispone de items agregados</p>
+                        <p >No tiene items agregados</p>
                     </div>
                     <NavLink  exact to={"/"}>Volver al inicio</NavLink>
                 </div>
@@ -26,19 +25,26 @@ export const Cart = () => {
 
             { cacheSize !== 0 &&
                 <div>
+                     <div>
+                        <button  disabled>Total de compra: $ {cartTotalAmount}</button>
+                     </div>
                     <div>
-                        {
-                            cache.map( item =>
-                                <div key={item.item.data.id}>
-                                    <CartItem
-                                        item = { item }
-                                    />
-                                </div>
-                            )
-                        }  
+                        <div className="containerCart">
+                            {
+                                cache.map( item =>
+                                    <div key={item.item.data.id}>
+                                        <CartItem
+                                            item = { item }
+                                            />
+                                    </div>
+                                )
+                            }  
+                        </div>
+                        <div className="containerVaciarSeguir ">
+                            <NavLink  exact to={"/"}> <button className="buttonSeguir">Seguir Comprando</button></NavLink>
+                            <button className="buttonVaciar" onClick={() => clear()}>Vaciar carrito</button>
+                        </div>
                     </div>
-                    <NavLink  exact to={"/"}>Seguir Comprando</NavLink>
-                    <button  onClick={() => clear()}>Vaciar carrito</button>
                 </div>
             }
 

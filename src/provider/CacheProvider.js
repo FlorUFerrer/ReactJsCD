@@ -7,7 +7,7 @@ export default function CacheProvider({ defaultValue = [] , children }) {
     const [ cartTotalAmount, setCartTotalAmount] = useState(0);
     
     function getFromCart(id){
-        return cache.find(x => x.item.data.id === id);
+        return cache.find(x => x.item.id === id);
     }
     
     function isInCart({id}){
@@ -15,26 +15,26 @@ export default function CacheProvider({ defaultValue = [] , children }) {
     }
     
     function discountAmount(id){
-        var unitPrice = cache.filter(x => x.item.data.id === id);
-        var amountToDiscount = unitPrice[0].item.data.price * unitPrice[0].amount;
+        var unitPrice = cache.filter(x => x.item.id === id);
+        var amountToDiscount = unitPrice[0].item.price * unitPrice[0].amount;
         setCartTotalAmount(cartTotalAmount - amountToDiscount);
     }
 
     function addItem(obj) {
-        if(isInCart(obj.item.data)){
+        if(isInCart(obj.item)){
             cache.map(x => increaseQuantity(x, obj));
-            var amountToIncreaseInMatch = obj.amount * obj.item.data.price;
+            var amountToIncreaseInMatch = obj.amount * obj.item.price;
             setCartTotalAmount(cartTotalAmount + amountToIncreaseInMatch);
             return;
         }
-        var amountToIncrease = obj.item.data.price * obj.amount;
+        var amountToIncrease = obj.item.price * obj.amount;
         setCache([...cache, obj]);
         setCartTotalAmount(cartTotalAmount + amountToIncrease);
     }
     
     function removeItem(id){
         discountAmount(id);
-        var newCache = cache.filter(x => x.item.data.id !== id)
+        var newCache = cache.filter(x => x.item.id !== id)
         setCache( newCache );
     }
     
@@ -43,7 +43,7 @@ export default function CacheProvider({ defaultValue = [] , children }) {
     }
 
     function increaseQuantity( x, obj ){
-        if( x.item.data === obj.item.data ){
+        if( x.item.id === obj.item.id ){
             x.amount = x.amount + obj.amount;
         }
     }

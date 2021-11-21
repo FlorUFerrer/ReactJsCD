@@ -2,6 +2,17 @@
 .loading {
     width: 50vw;
     height: 20%;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: center;
+    text-align: center;
+  }
+
+  .loadingContainer{
+    display: flex;
+    flex-direction: center;
+    text-align: center;
+    align-items: center;
   }
   .loading:after {
     content: " ";
@@ -14,7 +25,7 @@
     box-sizing: border-box;
     border: 50px solid rgb(241, 233, 233);
     border-color: rgb(121, 129, 235) transparent rgb(34, 16, 192) transparent ;
-    animation: loading 1s infinite;
+    animation: loading 0.5s infinite;
   }
   @keyframes loading {
     0% {

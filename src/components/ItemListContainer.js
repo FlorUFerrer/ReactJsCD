@@ -1,49 +1,69 @@
 import React, { useState, useEffect } from 'react'
 import { ItemList } from './ItemList';
-import { productList } from '../data/productList';
 import { useParams } from 'react-router-dom';
+import {  getDocs,doc,where, query} from "firebase/firestore";
+import { getFirestore } from "../firebase/index";
+import { collection} from "@firebase/firestore";
+import { NavLink } from 'react-router-dom';
+
+import './styles/loading.css'
 
 
-const productListPromise = new Promise((resolve, reject) => {
-    setTimeout(function() {
-      resolve(productList);
-    }, 2000);
-});
+
 
 export const ItemListContainer = () => {
-    
-    const { category } = useParams();
 
-    const [productos, setProductos] = useState({
-        data: [],
-        loading: true
+  const {category} = useParams();
+  const [products, setProducts] = useState(null);
+
+
+  useEffect(() => {
+  
+    const db = getFirestore();
+    
+    const q = query(collection(db, "items"))
+     
+    getDocs(q).then((snapshot) => {
+      setProducts(
+        snapshot.docs.map((doc) => {
+          const newDoc = { ...doc.data(), id: doc.id };
+          return newDoc;
+        })
+      );
     });
-    
-    useEffect( () => {
+  }, []);
+  
+  
+  
+  
 
-        productListPromise.then( data => {
-            if( category === undefined ) {
-                setProductos({
-                    data: data,
-                    loading: false
-                })
-            } else {
-                setProductos({
-                    data: data.filter( product => product.category === category ),
-                    loading: false
-                });
-            }
-        });
-    }, [category]);
 
-    return (
-        <div >
-            
-            <ItemList productos = { productos } />
-        </div>
-    );
+
+
+  return (
+          
+    <div>
     
+   
+    { products &&
+      products.map((product) => (
+         <div key={product.id} className="containerCard" >
+              <div className="card">
+                 <img className="sizeImg" src= {product.img} alt={product.name} />
+                 <h3>{product.name}</h3>
+                 <h3>${product.price}</h3>
+                               
+                <NavLink  to={`/producto/${product.id}`}><button className="details">DETALLES </button></NavLink>
+                        
+             </div>
+           
+       </div>
+      // <ItemList product ={product}  key={product.id}/>
+      ))}
+  </div>
+       
+  );
+  
 }
 
-
-  export default ItemListContainer
+export default ItemListContainer;

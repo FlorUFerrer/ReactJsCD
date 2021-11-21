@@ -6,15 +6,31 @@
     font-size: large;    
     font-family: Cochin;
 }
-.buttonCount{
+
+
+.containerCount{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.inputCounter{
+  
+  width: 40px; 
     
-    font-family: Cochin;
-    font-size: large;    
-    width: 60px;
-    color: rgb(194, 190, 216);
-    background:rgb(65, 70, 60);
 }
 
 .counter{
-    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttonCarrito{
+    color: rgb(221, 220, 233);
+    background:rgb(22, 24, 20);
+    width: 200px;
+    font-size: large;    
+    font-family: Cochin;
+
 }

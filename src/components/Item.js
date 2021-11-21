@@ -1,22 +1,23 @@
+import React from 'react';
 import './styles/itemList.css'
-
-import { NavLink } from 'react-router-dom';
+import "./styles/itemList.css";
+import { Link } from 'react-router-dom';
  
 
 
-export const Item = ({ id, name, price, img, stock}) => {
+export const Item = ({ producto}) => {
 
     return (
         <div className="containerCard" >
              <div className="card">
                 
-                <img className="sizeImg" src= {img} alt={name} />
-                <h3>{name}</h3>
-                <h3>${price}</h3>
+                <img className="sizeImg" src= {producto.img} alt={producto.name} />
+                <h3>{producto.name}</h3>
+                <h3>${producto.price}</h3>
                
-                <NavLink  key = { id } exact to={`/item/${id}`}>
-                             <button className="details">DETALLES </button>
-                </NavLink>
+                <Link  to={`/item/${producto.id}`}>
+                             <button className="details">Comprar</button>
+                </Link>
               </div>
            
         </div>

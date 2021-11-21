@@ -4,8 +4,8 @@
     border-width: 10px;
     background:rgb(240, 236, 236);
     width: 30rem;
-    height: 40rem;
-    margin: 2rem;
+    height: 45rem;
+    margin-bottom: 2rem;
     font-family: 'Lucida Sans';
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); 
 }
@@ -24,3 +24,35 @@
 .counter{
     margin: -1rem;
 }
+
+.container{
+    display:flex;
+    justify-content: center;
+}
+
+ .itemDetailContainer{
+    justify-content: center;
+    text-align: center;
+  
+} 
+
+
+ .cardDetail{
+    height: 42rem; 
+    width: 30rem;
+    color: rgb(15, 15, 15);
+    background:rgb(240, 236, 236);
+    border-width: 50px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); 
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+ }  
+
+ .containerItemLink{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-family: 'Gill Sans';
+    text-decoration:none;
+
+ }  

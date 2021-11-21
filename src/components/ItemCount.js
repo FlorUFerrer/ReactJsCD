@@ -23,66 +23,32 @@ export const ItemCount = ({stock, initial, onAdd}) => {
 
 
         <div>
-
-                     
-            <div className="counter">
-                <label >Stock Disponible: {stock}</label>
-                <button className="buttonCounter" onClick={Decreace}>-</button>
-                 {/* <button className= "buttonCount">{counter}</button>   */}
-                  <input   disabled value={counter}/> 
-                <button className="buttonCounter" onClick={Add}>+</button> 
-                <button  type="button" onClick={() => onAdd(counter)}>Agregar al carrito</button>
+            <div className="containerCount">
+                 <div className="counter">
+                    <div>
+                        <label >Stock disponible : {stock}</label>
+                    </div>   
+                    <div>
+                        <button className="buttonCounter" onClick={Decreace}>-</button>
+                        <input  className="inputCounter" disabled value={counter}/> 
+                        <button className="buttonCounter" onClick={Add}>+</button> 
+                    </div>   
+                </div>  
+                <div>  
+                    <button className="buttonCarrito" type="button" onClick={() => onAdd(counter)}>Agregar al carrito</button>
+                </div>
             </div>
-        
-    
         </div>
-      
-                 
-          
          
     );
 }
 export default ItemCount
-/*
-export const ItemCount = (props) => {
-
-   
-
-    const [counter,setCounter] = useState(props.sinStock);
-
-    
-    function Add(){
-            if (counter < props.stock){
-               setCounter(parseInt(counter)+1)
-            }
-   }
-
-   function Decreace(){
-             if (counter >= 1){
-                setCounter(parseInt(counter)-1)
-             }
-    }
-
-
-    return (
-        <div>
-
-                     
-            <div className="counter">
-                <button className="buttonCounter" onClick={Decreace}>-</button>
-                <button className= "buttonCount">{counter}</button> 
-                <button className="buttonCounter" onClick={Add}>+</button> 
-            </div>
-        
-        </div>
-    );
-}
 
 
 
-export default ItemCount
 
 
 
-*/
+
+
 

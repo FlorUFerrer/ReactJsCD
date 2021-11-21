@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import CartContext from '../context/CartContext';
@@ -18,22 +17,22 @@ export const ItemDetail = ({ item }) => {
     const onAdd = ( amount ) => {
         setAmountToBuy( amount );
         addItem({item, amount})
-    }
+    };
 
     return (
         <div >
             <div >
-                
+          
                 { item.loading && <p className="loading"></p> }
 
                 { !item.loading &&
                     <div className="containerItemDetail">
                         <div className="itemDetail" >
-                            <img className= "imgContainer" src= {item.data.img} alt={item.data.name} />
+                            <img className= "imgContainer" src= {item.img} alt={item.name} />
                             <div>
-                               <h5 >{ item.data.name }</h5>
-                                <p >{ item.data.description }</p>
-                                <p >$ { item.data.price }</p>
+                               <h5 >{ item.name }</h5>
+                                <p >{ item.description }</p>
+                                <p >$ { item.price }</p>
                             </div>
 
 
