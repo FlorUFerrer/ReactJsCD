@@ -27,12 +27,12 @@ export const ItemDetailContainer = () => {
         });
       
     }, [productoID]);
+
+
+    
   
     return (
       <>
-        
-   
-    
           
        <main>
         {item ? <ItemDetail item={item} key={item} /> : "Loading..."}

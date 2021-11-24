@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ItemList } from './ItemList';
 import { useParams } from 'react-router-dom';
-import {  getDocs,doc,where, query} from "firebase/firestore";
+import {  getDocs, query} from "firebase/firestore";
 import { getFirestore } from "../firebase/index";
 import { collection} from "@firebase/firestore";
 import { NavLink } from 'react-router-dom';
@@ -57,8 +57,8 @@ export const ItemListContainer = () => {
                         
              </div>
            
+             {/* <ItemList product ={product}  key={product.id}/> */}
        </div>
-      // <ItemList product ={product}  key={product.id}/>
       ))}
   </div>
        
