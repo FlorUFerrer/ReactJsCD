@@ -11,7 +11,7 @@ import "./styles/loading.css";
 export const ItemDetail = ({ item }) => {
 
     const { addItem } = useContext(CartContext);
-  
+  console.log(item)
     const [amountToBuy, setAmountToBuy] = useState(0);
 
     const onAdd = ( amount ) => {
@@ -21,18 +21,17 @@ export const ItemDetail = ({ item }) => {
 
     return (
         <div >
-            <div >
-          
-                { item.loading && <p className="loading"></p> }
-
-                { !item.loading &&
-                    <div className="containerItemDetail">
+           
+           
+            
+                   <div className="containerItemDetail">
                         <div className="itemDetail" >
-                            <img className= "imgContainer" src= {item.img} alt={item.name} />
-                            <div>
-                               <h5 >{ item.name }</h5>
+                        <img className= "imgContainer" src= {item.img} alt={item.name} />
+                        <div>
+                                <h5 >{ item.name }</h5>
                                 <p >{ item.description }</p>
                                 <p >$ { item.price }</p>
+                                
                             </div>
 
 
@@ -52,12 +51,11 @@ export const ItemDetail = ({ item }) => {
                             }
                        </div>
 
-                    </div>
-                  
-                }
-          
-                
-            </div>
+                    </div> 
+            
         </div>
     );
 }
+
+
+export default ItemDetail

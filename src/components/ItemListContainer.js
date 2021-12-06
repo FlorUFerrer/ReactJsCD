@@ -1,69 +1,69 @@
 import React, { useState, useEffect } from 'react'
-import { ItemList } from './ItemList';
 import { useParams } from 'react-router-dom';
-import {  getDocs, query} from "firebase/firestore";
+import {  getDocs} from "firebase/firestore";
 import { getFirestore } from "../firebase/index";
 import { collection} from "@firebase/firestore";
-import { NavLink } from 'react-router-dom';
-
+import ItemList from "./ItemList";
 import './styles/loading.css'
 
 
 
 
-export const ItemListContainer = () => {
+// export const ItemListContainer = () => {
 
-  const {category} = useParams();
-  const [products, setProducts] = useState(null);
+//   const {category} = useParams();
+//   const [products, setProducts] = useState(null);
 
 
-  useEffect(() => {
+//   useEffect(() => {
   
-    const db = getFirestore();
+//     const db = getFirestore();
     
-    const q = query(collection(db, "items"))
+//     const q = query(collection(db, "items"))
      
-    getDocs(q).then((snapshot) => {
-      setProducts(
-        snapshot.docs.map((doc) => {
-          const newDoc = { ...doc.data(), id: doc.id };
-          return newDoc;
-        })
-      );
-    });
-  }, []);
+//     getDocs(q).then((snapshot) => {
+//       setProducts(
+//         snapshot.docs.map((doc) => {
+//           const newDoc = { ...doc.data(), id: doc.id };
+//           return newDoc;
+//         })
+//       );
+//     });
+//   }, []);
   
   
-  
-  
-
-
-
-
-  return (
-          
-    <div>
+export  const ItemListContainer = () =>{
+    const { categoryId } = useParams()
+    const [product,setProduct] = useState()
     
-   
-    { products &&
-      products.map((product) => (
-         <div key={product.id} className="containerCard" >
-              <div className="card">
-                 <img className="sizeImg" src= {product.img} alt={product.name} />
-                 <h3>{product.name}</h3>
-                 <h3>${product.price}</h3>
-                               
-                <NavLink  to={`/producto/${product.id}`}><button className="details">DETALLES </button></NavLink>
-                        
-             </div>
-           
-             {/* <ItemList product ={product}  key={product.id}/> */}
-       </div>
-      ))}
-  </div>
-       
-  );
+
+    useEffect(() =>{
+        const db = getFirestore()
+        getDocs(collection(db,"items")).then
+        ((snapshot)=> setProduct(snapshot.docs.map((doc)=> doc.data())))
+    }, []);
+    
+
   
+    return(
+      <>
+
+          <div >
+              
+
+              <ItemList productos={product} category={categoryId}/>
+          
+          </div>
+      </>
+  )
+
 }
 
 export default ItemListContainer;
+
+
+
+    
+
+  
+
