@@ -25,14 +25,11 @@ export const Cart = () => {
 
             { cacheSize !== 0 &&
                 <div>
-                     <div>
-                        <button  disabled>Total de compra: $ {cartTotalAmount}</button>
-                     </div>
                     <div>
                         <div className="containerCart">
                             {
                                 cache.map( item =>
-                                    <div key={item.item.data.id}>
+                                    <div key={item.id}>
                                         <CartItem
                                             item = { item }
                                             />
@@ -40,6 +37,9 @@ export const Cart = () => {
                                 )
                             }  
                         </div>
+                     <div>
+                        <button  >Total de compra: $ {cartTotalAmount}</button>
+                     </div>
                         <div className="containerVaciarSeguir ">
                             <NavLink  exact to={"/"}> <button className="buttonSeguir">Seguir Comprando</button></NavLink>
                             <button className="buttonVaciar" onClick={() => clear()}>Vaciar carrito</button>
