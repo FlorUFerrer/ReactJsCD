@@ -9,28 +9,6 @@ import './styles/loading.css'
 
 
 
-// export const ItemListContainer = () => {
-
-//   const {category} = useParams();
-//   const [products, setProducts] = useState(null);
-
-
-//   useEffect(() => {
-  
-//     const db = getFirestore();
-    
-//     const q = query(collection(db, "items"))
-     
-//     getDocs(q).then((snapshot) => {
-//       setProducts(
-//         snapshot.docs.map((doc) => {
-//           const newDoc = { ...doc.data(), id: doc.id };
-//           return newDoc;
-//         })
-//       );
-//     });
-//   }, []);
-  
   
 export  const ItemListContainer = () =>{
     const { categoryId } = useParams()

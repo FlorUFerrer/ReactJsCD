@@ -7,6 +7,9 @@ import './styles/Cart.css'
 export const Cart = () => {
 
     const { cache, clear, cacheSize, cartTotalAmount } = useContext(CartContext);
+  
+    console.log("cache",cache[0])
+  
 
     return (
         <div >
@@ -23,24 +26,20 @@ export const Cart = () => {
                 </div>
             }
 
+
             { cacheSize !== 0 &&
                 <div>
                     <div>
                         <div className="containerCart">
-                            {
-                                cache.map( item =>
-                                    <div key={item.id}>
-                                        <CartItem
-                                            item = { item }
-                                            />
-                                    </div>
-                                )
-                            }  
+                       { cache.map((item) => 
+                       <CartItem key={item.id} item={item}/> )
+                    
+                        }
+                           
                         </div>
-                     <div>
-                        <button  >Total de compra: $ {cartTotalAmount}</button>
-                     </div>
+                     
                         <div className="containerVaciarSeguir ">
+                              <button  >Total de compra: $ {cartTotalAmount}</button>
                             <NavLink  exact to={"/"}> <button className="buttonSeguir">Seguir Comprando</button></NavLink>
                             <button className="buttonVaciar" onClick={() => clear()}>Vaciar carrito</button>
                             <NavLink  exact to={"/finalOrden"}>Finalizar mi compra</NavLink>

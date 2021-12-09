@@ -11,7 +11,7 @@ export const ItemList = ( { productos, category } ) =>{
     const categoria = category
         
         const categorizar = products ? (categoria ? products.filter((items) => { return items.category_id === categoria }) : products) : products;
-    
+  
         return (
             <>
             <>  
@@ -20,6 +20,7 @@ export const ItemList = ( { productos, category } ) =>{
                categorizar ? categorizar.map((producto) =>{
                     return <Item data={producto} key={producto.id} /> }) : "Loading..."}
             </div>
+            
         </>
 
             </>

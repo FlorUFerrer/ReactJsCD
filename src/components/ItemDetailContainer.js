@@ -7,9 +7,8 @@ import { getFirestore } from "../firebase/index";
 export const ItemDetailContainer = () => {
 
     const {id} = useParams()
-
+   
     const [item, setItem] = useState(null)
-
 
     useEffect( async() =>{
         const db = getFirestore(); 
@@ -18,13 +17,15 @@ export const ItemDetailContainer = () => {
         setItem(filtrados[0].data());  
     }, []);
 
+
   return (
         <div>
             <div>
 
-              { item ? <ItemDetail item={item} key={item.id}/> : "loading" } 
-
+              { item ? <ItemDetail item={item} id={id}/> : "loading" } 
+              
             </div>
+           
         </div>
     );
 }

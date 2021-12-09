@@ -8,12 +8,12 @@ import "./styles/loading.css";
 
 
 
-export const ItemDetail = ({ item }) => {
+export const ItemDetail = ({ item, id }) => {
 
     const { addItem } = useContext(CartContext);
-  console.log(item)
     const [amountToBuy, setAmountToBuy] = useState(0);
 
+    let ID = (id-1);
     const onAdd = ( amount ) => {
         setAmountToBuy( amount );
         addItem({item, amount})
