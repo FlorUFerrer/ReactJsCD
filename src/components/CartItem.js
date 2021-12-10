@@ -4,23 +4,19 @@ import './styles/Cart.css'
 
 
 
-export const CartItem = ({item ,id}) => {
+export const CartItem = ({item }) => {
 
    
     const { removeItem } = useContext(CartContext);
  
-    //console.log("AQUIIII",item.item)
-    console.log("ID",id)
+ 
     return (
         <>  
                 <div >
                     <div className="containerCart">
                         <div className="cartContainerCard" >
                             <div className="cardCart" >
-                              
-                                <h5 >{ item.item.name }</h5>
-                               
-                                   <div >
+                                <div >
                                     <img className= "imgContainer" src= {item.item.img} alt={item.item.name} />  
                                 </div>
                                  <div >

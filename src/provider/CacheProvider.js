@@ -34,7 +34,7 @@ export default function CacheProvider({ defaultValue = [] , children }) {
     
     function removeItem(id){
         discountAmount(id);
-        var newCache = cache.filter(x => x.item.id !== id)
+        var newCache = cache.filter((item) => item.id !== id.target.id)
         setCache( newCache );
     }
     

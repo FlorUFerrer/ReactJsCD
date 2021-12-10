@@ -8,7 +8,7 @@ export const Cart = () => {
 
     const { cache, clear, cacheSize, cartTotalAmount } = useContext(CartContext);
   
-    console.log("cache",cache[0])
+   
   
 
     return (

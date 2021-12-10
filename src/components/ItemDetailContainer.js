@@ -10,20 +10,20 @@ export const ItemDetailContainer = () => {
    
     const [item, setItem] = useState(null)
 
-    useEffect( async() =>{
-        const db = getFirestore(); 
-        let snapshot = await getDocs(collection(db,"items")); 
-        let filtrados = snapshot.docs.filter( doc => doc.data().id === id) 
-        setItem(filtrados[0].data());  
-    }, []);
-
+     useEffect( async() =>{
+         const db = getFirestore(); 
+         let snapshot = await getDocs(collection(db,"items")); 
+         let filtrados = snapshot.docs.filter( doc => doc.data().id === id) 
+         setItem(filtrados[0].data());  
+     }, []);
+  
 
   return (
         <div>
             <div>
-
-              { item ? <ItemDetail item={item} id={id}/> : "loading" } 
-              
+           
+               { item ? <ItemDetail item={item} id={id}/> : "loading" } 
+               
             </div>
            
         </div>
