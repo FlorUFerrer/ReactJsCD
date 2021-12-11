@@ -29,7 +29,7 @@ export const CartItem = ({item }) => {
                                 </div>     
                             </div> 
                                 <div > 
-                                    <button className="buttonEstilo" onClick={() => removeItem(item.id)}>Quitar del carrito</button>
+                                    <button className="buttonEstilo" onClick={() => removeItem(item.item.id)}>Quitar del carrito</button>
                                 </div>
                             </div>
                         </div>    
