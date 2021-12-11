@@ -39,7 +39,7 @@ export const FinalOrden = () => {
                 setOrderNumber(id);
               });
             console.log(newOrder)
-            alert("Se agrego el producto xitosamente!")
+            alert("Se agrego el producto exitosamente!")
         } catch (err) {
             console.error(err);
         }
