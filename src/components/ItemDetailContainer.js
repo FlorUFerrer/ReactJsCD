@@ -10,20 +10,27 @@ export const ItemDetailContainer = () => {
    
     const [item, setItem] = useState(null)
 
-    useEffect( async() =>{
-        const db = getFirestore(); 
-        let snapshot = await getDocs(collection(db,"items")); 
-        let filtrados = snapshot.docs.filter( doc => doc.data().id === id) 
-        setItem(filtrados[0].data());  
-    }, []);
 
+    
+
+    useEffect(() =>{
+        const db = getFirestore()
+        getDocs(collection(db,"items")).then
+        ((snapshot)=> setItem(snapshot.docs.map((doc)=> doc.data())))
+
+       
+    }, []);
+  
+    
 
   return (
         <div>
             <div>
-
-              { item ? <ItemDetail item={item} id={id}/> : "loading" } 
-              
+                <p>ITEM DETAIL</p>
+               
+                  { item ? <ItemDetail item={item[id]} key={id}/> : "loading" }    
+                
+               
             </div>
            
         </div>

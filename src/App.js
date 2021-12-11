@@ -21,22 +21,26 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <ItemListContainer greetings="Productos"/>
+          <ItemListContainer />
         </Route>
 
-        <Route exact path="/category/:category">
-          <ItemListContainer greetings="Productos"/>
-        </Route>
+         <Route exact path="/product">
+          <ItemListContainer />
+        </Route> 
 
-        <Route exact path="/item/:id">
+         <Route exact path="/category/:categoryId">
+            <ItemListContainer/>
+          </Route> 
+        
+         <Route exact path="/item/:id">
           <ItemDetailContainer />
-        </Route>
+        </Route> 
 
         <Route exact path="/cart">
           <Cart />
         </Route>
         
-          <Route exact path="/finalOrden">
+          <Route exact path="/FinalOrden">
           <FinalOrden/>
         </Route>
       
