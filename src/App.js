@@ -40,7 +40,7 @@ function App() {
           <Cart />
         </Route>
         
-          <Route exact path="/finalOrden">
+          <Route exact path="/FinalOrden">
           <FinalOrden/>
         </Route>
       
