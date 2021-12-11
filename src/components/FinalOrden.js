@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react'
 import CartContext from '../context/CartContext';
 import '@firebase/firestore';
 import { getFirestore } from '../firebase';
-import { doc,collection, add,addDoc, updateDoc,getDocs} from "firebase/firestore";
-import { NavLink } from 'react-router-dom';
+import {collection, addDoc} from "firebase/firestore";
+
 import "./styles/finalOrden.css"
 import BuyerForm from './Form';
 
